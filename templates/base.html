@@ -4,29 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'mystyle.css' %}">
   <title>Document</title>
+  <style>
+    
+  </style>
 </head>
 <body>
-  <div class="container">
-    <nav>
-      {% if user.is_authenticated %}
-      <h3>Hello, {{ user.username }}</h3>
-      <a href="{% url 'accounts:profile' user %}">내 프로필</a>
-      <form action="{% url 'accounts:logout' %}" method="POST">
-        {% csrf_token %}
-        <input type="submit" value="Logout">
-      </form>
-      <a href="{% url 'movies:index'%}">Movie</a>
-      <a href="{% url 'community:index'%}">Community</a>
-      <a href="{% url 'community:create'%}">New Review</a>
-      {% else %}
-      <a href="{% url 'accounts:signup' %}">Signup</a>
-      <a href="{% url 'accounts:login' %}">Login</a>
-      {% endif %}
+<div class="multi-bg">
+  {% comment %} <div class="container-fluid"> {% endcomment %}
+    <nav class="navbar navbar-expand-lg bg-dark">
+      <div class="container-fluid nav-op">
+        <a class="navbar-brand text-danger fw-bold" href="{% url 'movies:index'%}">CHDB</a>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active text-danger fw-bold" href="{% url 'movies:index'%}">Movie</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link active text-danger fw-bold" href="{% url 'community:index'%}">Community</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-danger fw-bold" href="{% url 'community:create'%}">New Review</a>
+            </li>
+          </ul>
+
+          {% comment %} 아래는 유저 관련 {% endcomment %}
+          {% if user.is_authenticated %}
+            <h4 class="mx-2 text-danger">Hello, {{ user.username }}</h4>
+            <a class="mx-2 text-danger" style="text-decoration:none" href="{% url 'accounts:profile' user %}">내 프로필</a>
+            <form action="{% url 'accounts:logout' %}" method="POST">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger" >Logout</button>
+            </form>
+            <form form class="d-flex" role="account">
+            {% else %}
+            <a class="mx-2" href="{% url 'accounts:signup' %}"> Signup </a>
+            <a class="mx-2" href="{% url 'accounts:login' %}"> Login </a>
+            {% endif %}
+          </form>
+        </div>
     </nav>
     {% block content %}
     {% endblock content %}
   </div>
+</div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>
