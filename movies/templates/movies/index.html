@@ -2,21 +2,16 @@
 
 {% block content %}
   <h1>Movies</h1>
-  <article>
+  <article style="width:300px">
     
-  {% for movie in movies %}
-  <a href="{% url 'movies:detail' movie.pk %}">
-    <div>{{ movie.title }}</div>
-    <div>{{ movie.release_date }}</div>
-    <div>{{ movie.popularity }}</div>
-    <div>{{ movie.vote_count }}</div>
-    <div>{{ movie.vote_average }}</div>
-    <div>{{ movie.overview }}</div>
-    <div>{{ movie.poster_path }}</div>
-    <div>{{ movie.genres }}</div>
-    <hr>
-  </a>
-  {% endfor %}
+    {% for movie in movies %}
+    <a class="font-default" href="{% url 'movies:detail' movie.pk %}">
+      <img style="width:300px" src="{{ movie.poster_path }}" alt="">
+      <div>{{ movie.title }}</div>
+      <div>{{ movie.vote_average }}</div>
+      <hr>
+    </a>
+    {% endfor %}
 
   </article>
 {% endblock %}
