@@ -5,20 +5,22 @@
 <h1>Recommendation</h1>
 <br>
 <div style="width:100%">
+    <a  href="{% url 'movies:detail' goodmovie.pk %}">
     <img  style="width:300px" src="{{ goodmovie.poster_path }}" alt="">
+    </a>
 </div>
+<br>
+<br>
+
 <div class="row">
 {% for goodm in movies2 %}
 <div class="col-1">
+    <a class="font-default d-block w-100 child" href="{% url 'movies:detail' goodm.pk %}">
     <img style="width:150%" src="{{ goodm.poster_path }}" alt="">
+    </a>
     <br>
     <br>
     <br>
-    <div>{{ goodm.title }}</div>
-    <div>{{ goodm.vote_average }}</div>
-    <br>
-    
-    
 </div>
 {% endfor %}
 </div>

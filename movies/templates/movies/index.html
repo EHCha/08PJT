@@ -2,16 +2,28 @@
 
 {% block content %}
   <h1>Movies</h1>
-  <article style="width:300px">
+  <article class="parent" style="width:1800px">
     
+    <div class="row">
+
     {% for movie in movies %}
-    <a class="font-default" href="{% url 'movies:detail' movie.pk %}">
-      <img style="width:300px" src="{{ movie.poster_path }}" alt="">
-      <div>{{ movie.title }}</div>
-      <div>{{ movie.vote_average }}</div>
-      <hr>
+    <div class="col-1">
+    <a class="font-default d-block w-100 child" href="{% url 'movies:detail' movie.pk %}">
+      <img style="width:150px" src="{{ movie.poster_path }}" alt="" class="">
     </a>
+    </div>
     {% endfor %}
+          
+    
+    
+          
+    
+
+      {% comment %} <div>{{ movie.title }}</div>
+      <div>{{ movie.vote_average }}</div>
+      <hr> {% endcomment %}
+    
+    
 
   </article>
 {% endblock %}

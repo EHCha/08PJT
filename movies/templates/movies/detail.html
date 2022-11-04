@@ -1,19 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<article>
-    <h1>detail</h1>
+<article style="color: white;">
+    <h1>Detail</h1>
     <img src="{{ movie.poster_path }}" alt="">
-    <div>{{ movie.title }}</div>
-    <div>{{ movie.release_date }}</div>
-    <div>{{ movie.popularity }}</div>
-    <div>{{ movie.vote_count }}</div>
-    <div>{{ movie.vote_average }}</div>
-    <div>{{ movie.overview }}</div>
-</article>
+    <p>
+    <div style= "padding-left: 5px">
+    <p>{{ movie.title }}</p>
+    <p>{{ movie.release_date }}</p>
+    <p>{{ movie.popularity }}</p>
+    <p>{{ movie.vote_count }}</p>
+    <p>{{ movie.vote_average }}</p>
+    <p>{{ movie.overview }}</p>
+    
 
 {% for genre in movie.genres.all %}
-    <div>{{ genre.name }}</div>
+    <p>{{ genre.name }}</p>
 {% endfor %}
+    </div>
+</article>
 <hr>
 {% endblock %}

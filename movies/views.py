@@ -25,12 +25,14 @@ def detail(request, movie_pk):
 
 @require_safe
 def recommended(request):
+    movies = Movie.objects.all()
     movies2 = Movie.objects.filter(vote_count__gte=6000, vote_average__gte=8)
     many = movies2.count()
     num = randrange(0, many-1)
     goodmovie = movies2[num]
 
     context = {
+        'movies': movies,
         'movies2': movies2[:40],
         'goodmovie':goodmovie,
     }
