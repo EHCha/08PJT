@@ -55,8 +55,12 @@ def logout(request):
 @login_required
 def profile(request, username):
     person = get_object_or_404(get_user_model(), username=username)
+    followers = person.followers
+    followings = person.followings
     context = {
         'person': person,
+        'followers': followers,
+        'followings': followings,
     }
     return render(request, 'accounts/profile.html', context)
 
