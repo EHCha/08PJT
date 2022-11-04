@@ -8,7 +8,7 @@ from .forms import GenreForm, MovieForm
 # Create your views here.
 @require_safe
 def index(request):
-    movies = Movie.object.all()
+    movies = Movie.objects.all()
     context = {
         'movies': movies,
     }
@@ -16,7 +16,7 @@ def index(request):
 
 @require_safe
 def detail(request, movie_pk):
-    movie = Movie.object.get(movie_pk=movie_pk)
+    movie = Movie.objects.get(pk=movie_pk)
     context = {
         'movie': movie,
     }
