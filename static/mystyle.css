@@ -3,7 +3,7 @@
     height: 1000px;
     background-image: url(https://mdn.mozillademos.org/files/11305/firefox.png),
         url(https://mdn.mozillademos.org/files/11307/bubbles.png),
-        linear-gradient(to right, rgba(109, 30, 28, 0.993), rgba(105, 2, 2, 0.89));
+        linear-gradient(to right, rgba(206, 176, 176, 0.993), rgba(58, 8, 8, 0.89));
     background-repeat: no-repeat,
         no-repeat,
         no-repeat;

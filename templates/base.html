@@ -14,7 +14,7 @@
   {% comment %} <div class="container-fluid"> {% endcomment %}
     <nav class="navbar navbar-expand-lg bg-dark">
       <div class="container-fluid nav-op">
-        <a class="navbar-brand text-danger fw-bold" href="{% url 'movies:index'%}">CHDB</a>
+        <a class="navbar-brand text-danger fw-bold" href="{% url 'movies:recommended'%}">CHDB</a>
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link active text-danger fw-bold" href="{% url 'movies:index'%}">Movie</a>
@@ -45,7 +45,7 @@
     </nav>
     {% block content %}
     {% endblock content %}
-  </div>
+  {% comment %} </div> {% endcomment %}
 </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   {% block script %}
