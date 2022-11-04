@@ -2,9 +2,9 @@
 
 {% block content %}
 <article>
-<h1>Recommendation</h1>
+<h1 class="fw-bold">Recommendation</h1>
 <br>
-<div style="width:100%">
+<div style="width:100%; padding-left: 5px;">
     <a  href="{% url 'movies:detail' goodmovie.pk %}">
     <img  style="width:300px" src="{{ goodmovie.poster_path }}" alt="">
     </a>

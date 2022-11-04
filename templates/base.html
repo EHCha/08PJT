@@ -14,26 +14,26 @@
   {% comment %} <div class="container-fluid"> {% endcomment %}
     <nav class="navbar navbar-expand-lg bg-dark">
       <div class="container-fluid nav-op">
-        <a class="navbar-brand text-danger fw-bold" href="{% url 'movies:recommended'%}">CHDB</a>
+        <a class="navbar-brand text-white fw-bold" href="{% url 'movies:recommended'%}">CHDB</a>
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active text-danger fw-bold" href="{% url 'movies:index'%}">Movie</a>
+              <a class="nav-link active text-white fw-bold" href="{% url 'movies:index'%}">Movie</a>
             </li> 
             <li class="nav-item">
-              <a class="nav-link active text-danger fw-bold" href="{% url 'community:index'%}">Community</a>
+              <a class="nav-link active text-white fw-bold" href="{% url 'community:index'%}">Community</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-danger fw-bold" href="{% url 'community:create'%}">New Review</a>
+              <a class="nav-link active text-white fw-bold" href="{% url 'community:create'%}">New Review</a>
             </li>
           </ul>
 
           {% comment %} 아래는 유저 관련 {% endcomment %}
           {% if user.is_authenticated %}
-            <h4 class="mx-2 text-danger">Hello, {{ user.username }}</h4>
-            <a class="mx-2 text-danger" style="text-decoration:none" href="{% url 'accounts:profile' user %}">내 프로필</a>
+            <h4 class="mx-2 text-white">Hello, {{ user.username }}</h4>
+            <a class="mx-2 text-white" style="text-decoration:none" href="{% url 'accounts:profile' user %}">내 프로필</a>
             <form action="{% url 'accounts:logout' %}" method="POST">
               {% csrf_token %}
-              <button type="submit" class="btn btn-danger" >Logout</button>
+              <button type="submit" class="btn btn-light" >Logout</button>
             </form>
             <form form class="d-flex" role="account">
             {% else %}
